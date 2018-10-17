@@ -1,1 +1,13 @@
+table {
+  border-collapse: collapse;
+}
 
+td {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+}
+
+.alive {
+  background-color: blue;
+}
