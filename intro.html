@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of Life - Introduction</title>
+</head>
+
+<body>
+    <h1>The Game of Life</h1>
+    <hr />
+    <h2>Introduction</h2>
+    <p>The Game of Life is a mathematical concept created by British mathematician John Conway in 1970. The game, through the use of a grid, is an attempt to demonstrate how living populations of organisms work, and has become a popular subject in mathematics,
+        computer science and other scientific fields of study.</p>
+    <h2>How Cells Live and Die</h2>
+    <p>The game takes place in a 100x100 grid. Cells are placed on the grid through a click. You may then press the Auto button to see the behavior of the cells or press the Next Step button to do one action at a time. If the cells are currently moving automatically,
+        you may press the Auto button again to stop the movement.</p>
+    <h3>Cell behavior is shown as follows:</h3>
+    <ul>
+        <li><b>A cell is born</b> if an empty slot is surrounded by exactly three living cells. The slot can be adjacent to the cell horizontally, vertically or diagonally. This is to simulate the concept of <em>reproduction.</em></li>
+        <li><b>A cell stays alive</b> if it the slot it's currently filling is surrounded by two or three other living cells. </li>
+        <li><b>A cell dies</b> if it is surrounded by less than two other cells. This represents <em>underpopulation.</em></li>
+        <li><b>A cell also dies</b> if it happens to be surrounded by four or more cells. This displays the result of <em>overpopulation.</em></li>
+    </ul>
+
+    <h2>Try It!</h2>
+    <p>For further information, see <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Wikipedia's page</a> on the subject.</p>
+    <p>The Game of Life can be started by pressing the button below. Feel free to click on some grids and then let it play through the Auto and Next Step buttons. As the Game of Life plays, see if you can notice any particular patterns going on.</p>
+    <p>We hope you enjoy the experience.</p>
+
+    <form action="./index.html">
+        <input type="submit" value="Start Game" />
+    </form>
+
+</body>
+
+</html>
