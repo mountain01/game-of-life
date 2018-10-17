@@ -9,5 +9,9 @@ td {
 }
 
 .alive {
-  background-color: blue;
+  background-color: navy;
+}
+
+.dead {
+  background-color: white;
 }

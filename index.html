@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="index.css">
   </head>
 
-  <body ng-controller="LifeCtrl">
+  <body ng-controller="LifeCtrl as $ctrl">
     <h1>Game of Life</h1>
-    {{3*4}} {{test}}
+    {{3*4}} {{$ctrl.test}}
 
     <table>
-      <tr ng-repeat="row in board track by $index">
-        <td ng-repeat="cell in row track by $index" ng-class="{alive:cell}"></td>
+      <tr ng-repeat="row in $ctrl.board track by $index">
+        <td ng-repeat="cell in row track by $index" ng-class="{alive:cell, dead:!cell}" ng-click="cell=!cell"></td>
       </tr>
     </table>
 
