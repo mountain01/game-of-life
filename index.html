@@ -1,13 +1,27 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Game of Life</title>
-</head>
-<body>
-  <h1>Game of Life</h1>
-</body>
+<html lang="en" ng-app="Life">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of Life</title>
+  </head>
+
+  <body ng-controller="LifeCtrl">
+    <h1>Game of Life</h1>
+    {{3*4}} {{test}}
+
+    <table>
+      <tr ng-repeat="row in board track by $index">
+        <td ng-repeat="cell in row track by $index">{{cell?'true':'false'}}</td>
+      </tr>
+    </table>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+
 </html>
