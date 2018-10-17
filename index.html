@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game of Life</title>
+    <style>
+      td {
+        width: 10px;
+        height: 10px;
+        background-color: red;
+
+      }
+
+      .alive {
+        background-color: blue;
+      }
+    </style>
   </head>
 
   <body ng-controller="LifeCtrl">
@@ -14,7 +26,7 @@
 
     <table>
       <tr ng-repeat="row in board track by $index">
-        <td ng-repeat="cell in row track by $index">{{cell?'true':'false'}}</td>
+        <td ng-repeat="cell in row track by $index" ng-class="{alive:cell}"></td>
       </tr>
     </table>
 
