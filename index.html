@@ -12,25 +12,26 @@
   </head>
 
   <body ng-controller="LifeCtrl as $ctrl">
-    <h1>Game of Life</h1>
-    {{3*4}} {{$ctrl.test}}
+    <h1>Conway's Game of Life</h1>
+    <div><span class="generations">Generations: {{$ctrl.test}}</span>
 
-    <table>
-      <tr ng-repeat="row in $ctrl.board track by $index" ng-init="rowIndex = $index">
-        <td ng-repeat="cell in row track by $index" ng-init="col = $index" ng-class="{alive:cell, dead:!cell}" ng-click="$ctrl.handleClick(rowIndex,col)"></td>
-      </tr>
-    </table>
+      <table>
+        <tr ng-repeat="row in $ctrl.board track by $index" ng-init="rowIndex = $index">
+          <td ng-repeat="cell in row track by $index" ng-init="col = $index" ng-class="{alive:cell, dead:!cell}" ng-click="$ctrl.handleClick(rowIndex,col)"></td>
+        </tr>
+      </table>
+    </div>
 
-    <button ng-click="$ctrl.nextStep()">next step</button>
-    <button ng-click="$ctrl.autoRun()">Run simulation</button>
-    <button ng-click="$ctrl.pause()">Pause</button>
-    <button ng-click="$ctrl.reset()">reset</button>
-    <button ng-click="$ctrl.downloadBoard()">SaveBoard</button>
-    <select ng-model="$ctrl.selectedPattern">
+    <div class="buttons"><button ng-click="$ctrl.nextStep()">next step</button>
+      <button ng-click="$ctrl.autoRun()">Run simulation</button>
+      <button ng-click="$ctrl.pause()">Pause</button>
+      <button ng-click="$ctrl.reset()">reset</button>
+      <button ng-click="$ctrl.downloadBoard()">SaveBoard</button>
+      <select ng-model="$ctrl.selectedPattern">
       <option value="">-- Select a Pattern --</option>
       <option ng-repeat="pattern in $ctrl.patterns" value={{pattern.value}} ng-click="$ctrl.patternSelected(pattern)">{{pattern.displayName}}</option>
     </select>
-    <button ng-click="$ctrl.patternSelected()">Load board</button>
+      <button ng-click="$ctrl.patternSelected()">Load board</button></div>
 
   </body>
 

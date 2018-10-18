@@ -16,3 +16,22 @@ td {
 .dead {
   background-color: white;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 15px;
+}
+
+.generations {
+  align-self: flex-start;
+}
+
+.buttons>* {
+  margin-right: 10px;
+}

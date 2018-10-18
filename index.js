@@ -41,7 +41,7 @@ app.controller('LifeCtrl', ['$http', '$interval', function($http, $interval) {
 
   ctrl.autoRun = function() {
     ctrl.pause();
-    auto = $interval(() => ctrl.nextStep(), 200);
+    auto = $interval(() => ctrl.nextStep(), 100);
   };
 
   ctrl.pause = function() {
@@ -50,6 +50,7 @@ app.controller('LifeCtrl', ['$http', '$interval', function($http, $interval) {
 
   ctrl.reset = function() {
     ctrl.pause();
+    ctrl.test = 0;
     ctrl.board = createBoard(false);
   }
 
