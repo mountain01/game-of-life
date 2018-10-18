@@ -1,27 +1,35 @@
+/*global angular*/
 const app = angular.module('Life', []);
 
 app.controller('LifeCtrl', ['$http', '$interval', function($http, $interval) {
   let ctrl = this;
   ctrl.test = 0;
-  const size = 50;
+  const size = 70;
   let auto = false;
-
-  // ctrl.board = new Array(size);
-  // for (let i = 0; i < size; i++) {
-  //   ctrl.board[i] = new Array();
-  //   for (let k = 0; k < size; k++) {
-  //     ctrl.board[i][k] = false;
-  //   }
-  // }
-  // ctrl.board[0][0] = true;
-  // ctrl.board[1][0] = true;
-  // ctrl.board[2][0] = true;
+  ctrl.selectedPattern = '';
+  ctrl.patterns = [
+    { displayName: 'Star', value: './boards/loop.json' },
+    { displayName: 'Glider', value: './boards/glider.rle' },
+    { displayName: 'Glider Gun', value: './boards/cosper-gun.rle' },
+    { displayName: 'Pulsars', value: './boards/pulsars.json' },
+  ];
 
   ctrl.board = createBoard(false);
 
   ctrl.handleClick = function(row, col) {
     ctrl.board[row][col] = !ctrl.board[row][col];
   };
+
+  ctrl.patternSelected = function() {
+    const value = ctrl.selectedPattern;
+    ctrl.reset();
+    if (value.indexOf('json') !== -1) {
+      $http.get(value).then(res => ctrl.board = res.data);
+    }
+    else if (value.indexOf('rle') !== -1) {
+      ctrl.load(value);
+    }
+  }
 
   function createBoard(val) {
     const ret = new Array(size);
@@ -56,9 +64,9 @@ app.controller('LifeCtrl', ['$http', '$interval', function($http, $interval) {
     });
   };
 
-  ctrl.load = function() {
+  ctrl.load = function(value) {
     ctrl.reset();
-    $http.get('./boards/looper.rle').then(res => {
+    $http.get(value).then(res => {
       const [rules, ...pattern] = res.data.split('\n').filter(a => a.indexOf('#') === -1);
       setBoard(rules, pattern.map(decode).join(''));
     })
@@ -94,7 +102,7 @@ app.controller('LifeCtrl', ['$http', '$interval', function($http, $interval) {
 
     str.split('').forEach((char) => {
       // build the count string
-      if (char.match(/\d/)) {
+      if (/\d/.test(char)) {
         count += char;
         return;
       }

@@ -27,6 +27,10 @@
     <button ng-click="$ctrl.reset()">reset</button>
     <button ng-click="$ctrl.downloadBoard()">SaveBoard</button>
     <button ng-click="$ctrl.load()">load board</button>
+    <select ng-model="$ctrl.selectedPattern" ng-change="$ctrl.patternSelected()">
+      <option value="">-- Select a Pattern --</option>
+      <option ng-repeat="pattern in $ctrl.patterns" value={{pattern.value}} ng-click="$ctrl.patternSelected(pattern)">{{pattern.displayName}}</option>
+    </select>
 
   </body>
 
