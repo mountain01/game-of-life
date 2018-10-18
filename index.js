@@ -60,11 +60,13 @@ app.controller('LifeCtrl', ['$http', '$interval', function($http, $interval) {
     ctrl.reset();
     $http.get('./boards/looper.rle').then(res => {
       const [rules, ...pattern] = res.data.split('\n').filter(a => a.indexOf('#') === -1);
-      setBoard(pattern.map(decode).join(''));
+      setBoard(rules, pattern.map(decode).join(''));
     })
   }
 
-  function setBoard(pattern) {
+  function setBoard(rules, pattern) {
+    const center = size / 2;
+
     let i = 0,
       k = 0;
     pattern.split('').forEach(char => {
