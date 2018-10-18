@@ -17,9 +17,8 @@ app.controller('LifeCtrl', ['$scope', function($scope) {
   // ctrl.board[1][0] = true;
   // ctrl.board[2][0] = true;
 
-  ctrl.handleClick = function(cell) {
-    cell = !cell;
-    $scope.$apply();
+  ctrl.handleClick = function(row, col) {
+    ctrl.board[row][col] = !ctrl.board[row][col];
   };
 
   ctrl.autoRun = function() {
