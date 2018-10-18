@@ -8,7 +8,7 @@ app.controller('LifeCtrl', ['$http', '$interval', function($http, $interval) {
   let auto = false;
   ctrl.selectedPattern = '';
   ctrl.patterns = [
-    { displayName: 'Star', value: './boards/loop.json' },
+    { displayName: 'Star', value: './boards/star.json' },
     { displayName: 'Glider', value: './boards/glider.rle' },
     { displayName: 'Glider Gun', value: './boards/cosper-gun.rle' },
     { displayName: 'Pulsars', value: './boards/pulsars.json' },
