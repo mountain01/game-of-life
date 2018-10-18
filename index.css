@@ -21,11 +21,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: linen;
 }
 
 .buttons {
   display: flex;
   margin-top: 15px;
+}
+
+h1 {
+  text-decoration: underline;
 }
 
 .generations {
@@ -34,4 +39,12 @@ body {
 
 .buttons>* {
   margin-right: 10px;
+}
+
+* {
+  font-family: helvetica;
+}
+
+button {
+  text-transform: capitalize;
 }
