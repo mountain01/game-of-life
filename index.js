@@ -12,6 +12,7 @@ app.controller('LifeCtrl', ['$http', '$interval', function($http, $interval) {
     { displayName: 'Glider', value: './boards/glider.rle' },
     { displayName: 'Glider Gun', value: './boards/cosper-gun.rle' },
     { displayName: 'Pulsars', value: './boards/pulsars.json' },
+    { displayName: 'X', value: './boards/x.json' },
   ];
 
   ctrl.board = createBoard(false);
